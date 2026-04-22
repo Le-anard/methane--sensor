@@ -46,8 +46,8 @@ use embedded_graphics::{
 };
 use ssd1306::{mode::BufferedGraphicsMode, prelude::*, I2CDisplayInterface, Ssd1306};
 
-const SAFE_THRESHOLD: u16    = 1500;
-const WARNING_THRESHOLD: u16 = 2500;
+const SAFE_THRESHOLD: u16    = 400;
+const WARNING_THRESHOLD: u16 = 550;
 const PPM_SCALE: f32 = 0.244;
 const FILTER_WINDOW: usize = 8;
 const LOOP_DELAY_MS: u32 = 500;

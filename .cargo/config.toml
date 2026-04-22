@@ -1,0 +1,26 @@
+# .cargo/config.toml — ESP32-C6 (RISC-V riscv32imac-esp-espidf)
+#
+# Despite being RISC-V, the *-esp-espidf target is NOT in upstream rustup.
+# Espressif ships it via their own toolchain registry through `espup`.
+# Run the setup commands in README.md before building.
+
+[build]
+target = "riscv32imac-esp-espidf"
+
+[target.riscv32imac-esp-espidf]
+linker    = "ldproxy"
+# Do NOT pass -Tlink.x here — esp-idf-sys generates and passes it via
+# ldproxy automatically. Adding it manually causes "cannot open link.x".
+rustflags = [
+    "-C", "link-arg=-Wl,--gc-sections",
+    "-C", "link-arg=-Wl,-zstack-size=65536",
+]
+
+[unstable]
+# build-std is required: the esp-espidf target has no prebuilt std in rustup.
+# espup installs rust-src so this works correctly.
+build-std = ["std", "panic_abort"]
+
+[env]
+MCU             = "esp32c6"
+ESP_IDF_VERSION = "v5.2.1"

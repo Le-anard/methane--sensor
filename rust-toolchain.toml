@@ -1,0 +1,13 @@
+# rust-toolchain.toml
+#
+# The riscv32imac-esp-espidf target is distributed by Espressif, NOT upstream
+# rustup. Even though ESP32-C6 is RISC-V, the *-esp-espidf std library is only
+# available through Espressif's toolchain channel ("esp").
+#
+# Install with:
+#   cargo install espup
+#   espup install          # installs the "esp" channel + rust-src for all targets
+#   source ~/export-esp.sh # (Linux/macOS) — run this in every new shell, or add to ~/.bashrc
+
+[toolchain]
+channel = "esp"

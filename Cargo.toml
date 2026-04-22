@@ -1,0 +1,51 @@
+[package]
+name = "methane_detector_c6"
+version = "0.1.0"
+edition = "2021"
+description = "Methane Gas Detector for ESP32-C6 with SSD1306 OLED"
+
+[[bin]]
+name = "methane_detector_c6"
+test = false
+bench = false
+
+[dependencies]
+# esp-idf-svc 0.52 already re-exports hal and sys at compatible versions.
+# Do NOT add esp-idf-hal or esp-idf-sys separately — they share a native
+# `links = "esp_idf"` key and Cargo will refuse to resolve two copies.
+# The only thing we need from sys directly is the `binstart` entry point.
+esp-idf-svc = { version = "0.52", features = ["alloc"] }
+esp-idf-sys = { version = "0.37", features = ["binstart"] }
+
+# Embedded-HAL 0.2 traits (used by ssd1306 0.8)
+embedded-hal = "0.2"
+
+# SSD1306 I2C OLED driver
+ssd1306 = "0.8"
+
+# 2D graphics primitives + text rendering
+embedded-graphics = "0.8"
+
+# Stack-allocated formatted strings (no alloc needed)
+heapless = "0.8"
+
+# Logging
+log = "0.4"
+
+# Error handling
+anyhow = "1"
+
+[build-dependencies]
+embuild = "0.33"
+
+[profile.release]
+opt-level = "s"
+lto        = true
+codegen-units = 1
+debug      = false
+
+[profile.dev]
+opt-level = "s"   # embedded: always optimise for size
+
+[package.metadata.esp-idf-sys]
+esp_idf_version = "v5.2.1"

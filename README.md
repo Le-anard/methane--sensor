@@ -120,4 +120,15 @@ espflash flash --monitor target/riscv32imac-esp-espidf/release/methane_c6
 | esp-println | 0.13 | Serial logging |
 
 ---
+
+## Theoretical/ideal circuit.
+<img width="1053" height="845" alt="Screenshot From 2026-04-22 17-32-00" src="https://github.com/user-attachments/assets/12bb16ab-0835-4cd0-957f-3a0b3acd9c42" />
+
+## Our circuit at work(real world).
+<img width="1600" height="1200" alt="image (1)" src="https://github.com/user-attachments/assets/9d9db8df-9f3a-48ca-8838-e4d0d0b5264a" />
+
+
+
 ```
+
+

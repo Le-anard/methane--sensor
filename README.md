@@ -72,8 +72,8 @@ A real-time methane gas detection system built with Rust on the ESP32-C6 microco
 The MQ-2 requires a 60-second warm-up after power-on. In clean air it typically reads 300–600 raw ADC counts. Adjust `SAFE_THRESHOLD` and `WARNING_THRESHOLD` in `main.rs` to suit your environment.
 
 ```rust
-const SAFE_THRESHOLD: u16    = 1500;
-const WARNING_THRESHOLD: u16 = 2500;
+const SAFE_THRESHOLD: u16    = 500;
+const WARNING_THRESHOLD: u16 = 620;
 ```
 
 ---
